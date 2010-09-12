@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# this script disables unnecessary services
+# as defined in /etc/baseline/services_off
+# and enables services from /etc/baseline/services_on
+
+prog="$(basename $0)"
+def_run=$(grep '^id.*initdefault' /etc/inittab | cut -d: -f2)
+
+for svc in $(cat /etc/baseline/services_off); do
+  /sbin/chkconfig --list $svc 2> /dev/null | grep "$def_run:on" &> /dev/null || continue
+  logger -t $prog "disabling $svc"
+  {
+  /sbin/service $svc stop || :
+  /sbin/chkconfig $svc off || :
+  } &> /dev/null
+done
+
+for svc in $(cat /etc/baseline/services_on); do
+  /sbin/chkconfig --list $svc 2> /dev/null | grep "$def_run:off" &> /dev/null || continue
+  logger -t $prog "enabling $svc"
+  {
+  /sbin/service $svc restart || :
+  /sbin/chkconfig $svc on || :
+  } &> /dev/null
+done
+
+

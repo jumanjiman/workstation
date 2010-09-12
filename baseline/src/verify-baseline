@@ -1,0 +1,30 @@
+#!/bin/bash
+
+ret_code=0
+
+/usr/bin/whoami | grep -q root
+if [ $? -eq 0 ]; then
+  # warning conditions
+
+  # we disable zeroconf on servers
+  /sbin/ip route show table all | grep -q 169.254 
+  if [ $? -eq 0 ]; then
+    ret_code=1
+    echo 'WARNING: zeroconf network is enabled' 
+  fi
+  
+  # error conditions
+  # double-check that sshd config is intact
+  /usr/sbin/sshd -t 
+  if [ $? -ne 0 ]; then
+    ret_code=2
+    echo 'ERROR: /etc/ssh/sshd_config is fubar'
+  fi
+
+  ## end of checks
+else
+  ret_code=2
+  echo "ERROR: must be root"
+fi
+
+exit $ret_code

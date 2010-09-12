@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# this script disables zeroconf networking
+
+file=/etc/sysconfig/network
+grep -q NOZEROCONF $file || \
+(
+  logger -t $prog "disabling zeroconf"
+  echo "NOZEROCONF=disabled" >> $file
+  #service network restart
+)
+
