@@ -13,6 +13,7 @@ Buildarch: noarch
 
 requires: reach
 requires: bash-profile-scripts
+requires: baseline-release = %{version}-%{release}
 
 # cli access to pastebin
 requires: nopaste
@@ -78,6 +79,7 @@ summary: baseline development tools
 
 # lockstep with baseline
 requires: baseline = %{version}-%{release}
+requires: baseline-release = %{version}-%{release}
 
 # common tools
 requires: rpm-build
@@ -90,6 +92,18 @@ requires: eclipse-setools
 
 %description devel
 Developer tools for consistent Fedora build.
+
+# ----------------------------------------------------------------------
+
+%package release
+
+summary: workstation repo for baseline
+
+%description release
+Workstation repo to configure yum for local repo
+
+%files release
+%config %{_sysconfdir}/yum.repos.d/workstation.repo
 
 # ----------------------------------------------------------------------
 
@@ -109,11 +123,13 @@ Developer tools for consistent Fedora build.
 %{__rm} -fr %{buildroot}
 %{__mkdir_p} %{buildroot}%{_sbindir}
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/baseline
+%{__mkdir_p} %{buildroot}%{_sysconfdir}/yum.repos.d
 %{__install} -p -m755 src/verify-baseline %{buildroot}%{_sbindir}
 %{__install} -p -m755 src/disable-zeroconf %{buildroot}%{_sbindir}
 %{__install} -p -m755 src/disable-services %{buildroot}%{_sbindir}
 %{__install} -p -m644 src/services_on  %{buildroot}%{_sysconfdir}/baseline
 %{__install} -p -m644 src/services_off %{buildroot}%{_sysconfdir}/baseline
+%{__install} -p -m644 src/workstation.repo %{buildroot}%{_sysconfdir}/yum.repos.d
 
 
 %files
