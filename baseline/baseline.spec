@@ -22,7 +22,7 @@ requires: spacecmd
 
 # common OS pkgs
 requires: authconfig
-requires: bash
+requires: bash >= 4
 requires: bridge-utils
 requires: chkconfig
 requires: device-mapper-multipath
