@@ -156,8 +156,8 @@ Workstation repo to configure yum for local repo
 
 # files for -release subpkg
 %{__install} -p -m644 src/workstation.repo %{buildroot}%{_sysconfdir}/yum.repos.d
-%{__install} -p -m644 src/pmorgan.pubkey %{_sysconfdir}/pki/rpm-gpg/pmorgan.pubkey
-%{__install} -p -m644 src/google.pubkey %{_sysconfdir}/pki/rpm-gpg/google.pubkey
+%{__install} -p -m644 src/pmorgan.pubkey %{buildroot}%{_sysconfdir}/pki/rpm-gpg/pmorgan.pubkey
+%{__install} -p -m644 src/google.pubkey %{buildroot}%{_sysconfdir}/pki/rpm-gpg/google.pubkey
 
 
 
