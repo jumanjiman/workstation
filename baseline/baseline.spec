@@ -59,11 +59,39 @@ requires: traceroute
 requires: lftp
 requires: krb5-workstation
 
+# selinux tools
+requires: policycoreutils
+requires: policycoreutils-gui
+requires: setools
+requires: setools-console
+requires: setools-gui
 
 %description 
 Install this package to ensure a baseline, common config
 for my machine.
 
+# ----------------------------------------------------------------------
+
+%package devel
+
+summary: baseline development tools
+
+# lockstep with baseline
+requires: baseline = %{version}-%{release}
+
+# common tools
+requires: rpm-build
+requires: rpmlint
+requires: python-setuptools
+
+# selinux tools
+requires: setools-devel
+requires: eclipse-setools
+
+%description devel
+Developer tools for consistent Fedora build.
+
+# ----------------------------------------------------------------------
 
 %prep
 %setup -q
