@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.2
+Version: 0.3.3
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
@@ -198,6 +198,10 @@ fi
 
 
 %changelog
+* Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.3-1
+- moved files sections to subpackage sections (jumanjiman@gmail.com)
+- add -release subpackage (jumanjiman@gmail.com)
+
 * Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.2-1
 - add devel subpackage (jumanjiman@gmail.com)
 - require bash >= 4 (jumanjiman@gmail.com)
