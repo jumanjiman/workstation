@@ -83,11 +83,11 @@ for my machine.
 %{__rm} -fr %{buildroot}
 %{__mkdir_p} %{buildroot}%{_sbindir}
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/baseline
-%{__install} -p -m755 verify-baseline %{buildroot}%{_sbindir}
-%{__install} -p -m755 disable-zeroconf %{buildroot}%{_sbindir}
-%{__install} -p -m755 disable-services %{buildroot}%{_sbindir}
-%{__install} -p -m644 services_on  %{buildroot}%{_sysconfdir}/baseline
-%{__install} -p -m644 services_off %{buildroot}%{_sysconfdir}/baseline
+%{__install} -p -m755 src/verify-baseline %{buildroot}%{_sbindir}
+%{__install} -p -m755 src/disable-zeroconf %{buildroot}%{_sbindir}
+%{__install} -p -m755 src/disable-services %{buildroot}%{_sbindir}
+%{__install} -p -m644 src/services_on  %{buildroot}%{_sysconfdir}/baseline
+%{__install} -p -m644 src/services_off %{buildroot}%{_sysconfdir}/baseline
 
 
 %files 
