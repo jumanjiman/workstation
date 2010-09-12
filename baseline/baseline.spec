@@ -116,13 +116,16 @@ Developer tools for consistent Fedora build.
 %{__install} -p -m644 src/services_off %{buildroot}%{_sysconfdir}/baseline
 
 
-%files 
+%files
 %defattr(-,root,root,-)
 %config %{_sysconfdir}/baseline/services_on
 %config %{_sysconfdir}/baseline/services_off
 %{_sbindir}/verify-baseline
 %{_sbindir}/disable-zeroconf
 %{_sbindir}/disable-services
+%doc README.asciidoc
+
+%files devel
 %doc README.asciidoc
 
 
