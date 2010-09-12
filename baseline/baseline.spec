@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.3
+Version: 0.3.4
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
@@ -215,6 +215,11 @@ fi
 
 
 %changelog
+* Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.4-1
+- add pmorgan.pubkey (jumanjiman@gmail.com)
+- add google.pubkey (jumanjiman@gmail.com)
+- add google-chrome-stable repo and dependency (jumanjiman@gmail.com)
+
 * Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.3-1
 - moved files sections to subpackage sections (jumanjiman@gmail.com)
 - add -release subpackage (jumanjiman@gmail.com)
