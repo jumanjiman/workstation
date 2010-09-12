@@ -1,0 +1,18 @@
+bash-profile-scripts
+====================
+
+Places files in `/etc/profiles.d` to configure bash.
+Override these by placing your settings in
+`~/.bashrc` BELOW the global source.
+
+Example in your `~/.bashrc`:
+
+----
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+ 
+# override system-wide prefs here
+unalias c
+----
