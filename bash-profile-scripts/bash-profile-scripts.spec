@@ -1,8 +1,8 @@
 name: bash-profile-scripts
 summary: Adds /etc/profile.d/ files for Bash
 
-version: 0.2.0
-release: 0%{?dist}
+version: 0.2.1
+release: 1%{?dist}
 
 license: GPLv3
 group: System Environment/Base
@@ -60,6 +60,9 @@ the way I like it.
 %doc src/sample.bashrc
 
 %changelog
+* Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.1-1
+- import from previous srpm
+
 * Sun Jun 13 2010 Paul Morgan <pmorgan@redhat.com> 0.1-6
 - CHANGE: sample.bashrc to override globals
 
