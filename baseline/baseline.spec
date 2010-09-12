@@ -53,8 +53,6 @@ requires: wireshark
 requires: xorg-x11-xauth
 requires: yum 
 requires: yum-utils
-requires: emacs
-requires: nano
 requires: xterm
 requires: subversion
 requires: traceroute
