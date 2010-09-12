@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.0
-Release: 0%{?dist}
+Version: 0.3.1
+Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -153,3 +153,6 @@ fi
 
 
 %changelog
+* Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.1-1
+- import from old system
+
