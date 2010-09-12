@@ -71,6 +71,15 @@ requires: setools-gui
 Install this package to ensure a baseline, common config
 for my machine.
 
+%files
+%defattr(-,root,root,-)
+%config %{_sysconfdir}/baseline/services_on
+%config %{_sysconfdir}/baseline/services_off
+%{_sbindir}/verify-baseline
+%{_sbindir}/disable-zeroconf
+%{_sbindir}/disable-services
+%doc README.asciidoc
+
 # ----------------------------------------------------------------------
 
 %package devel
@@ -92,6 +101,9 @@ requires: eclipse-setools
 
 %description devel
 Developer tools for consistent Fedora build.
+
+%files devel
+%doc README.asciidoc
 
 # ----------------------------------------------------------------------
 
@@ -131,18 +143,6 @@ Workstation repo to configure yum for local repo
 %{__install} -p -m644 src/services_off %{buildroot}%{_sysconfdir}/baseline
 %{__install} -p -m644 src/workstation.repo %{buildroot}%{_sysconfdir}/yum.repos.d
 
-
-%files
-%defattr(-,root,root,-)
-%config %{_sysconfdir}/baseline/services_on
-%config %{_sysconfdir}/baseline/services_off
-%{_sbindir}/verify-baseline
-%{_sbindir}/disable-zeroconf
-%{_sbindir}/disable-services
-%doc README.asciidoc
-
-%files devel
-%doc README.asciidoc
 
 
 # =====================================================
