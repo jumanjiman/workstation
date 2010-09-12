@@ -21,6 +21,9 @@ requires: nopaste
 # satserver tools
 requires: spacecmd
 
+# browser
+requires: google-chrome
+
 # common OS pkgs
 requires: authconfig
 requires: bash >= 4
@@ -106,6 +109,9 @@ Developer tools for consistent Fedora build.
 %doc README.asciidoc
 
 # ----------------------------------------------------------------------
+#
+# NOTE: baseline-release should be installed in a separate
+#       transaction from baseline and baseline-devel
 
 %package release
 
@@ -116,6 +122,9 @@ Workstation repo to configure yum for local repo
 
 %files release
 %config %{_sysconfdir}/yum.repos.d/workstation.repo
+%config %{_sysconfdir}/yum.repos.d/google-chrome-stable.repo
+%config %{_sysconfdir}/pki/rpm-gpg/pmorgan.pubkey
+%config %{_sysconfdir}/pki/rpm-gpg/google.pubkey
 
 # ----------------------------------------------------------------------
 
@@ -136,12 +145,19 @@ Workstation repo to configure yum for local repo
 %{__mkdir_p} %{buildroot}%{_sbindir}
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/baseline
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/yum.repos.d
+%{__mkdir_p} %{buildroot}%{_sysconfdir}/pki/rpm-gpg
+
+# files for base pkg
 %{__install} -p -m755 src/verify-baseline %{buildroot}%{_sbindir}
 %{__install} -p -m755 src/disable-zeroconf %{buildroot}%{_sbindir}
 %{__install} -p -m755 src/disable-services %{buildroot}%{_sbindir}
 %{__install} -p -m644 src/services_on  %{buildroot}%{_sysconfdir}/baseline
 %{__install} -p -m644 src/services_off %{buildroot}%{_sysconfdir}/baseline
+
+# files for -release subpkg
 %{__install} -p -m644 src/workstation.repo %{buildroot}%{_sysconfdir}/yum.repos.d
+%{__install} -p -m644 src/pmorgan.pubkey %{_sysconfdir}/pki/rpm-gpg/pmorgan.pubkey
+%{__install} -p -m644 src/google.pubkey %{_sysconfdir}/pki/rpm-gpg/google.pubkey
 
 
 
