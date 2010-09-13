@@ -1,6 +1,6 @@
 Name:		role-workstation
-Version:	0.2.0
-Release:	0%{?dist}
+Version:	0.2.1
+Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
 Group:		System Environment/Base
@@ -73,6 +73,9 @@ fi
 
 
 %changelog
+* Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.1-1
+- import from srpm
+
 * Sat Jun 19 2010 Paul Morgan <pmorgan@redhat.com> 0.1-9
 - FIX: typo in workstation.sh
 
