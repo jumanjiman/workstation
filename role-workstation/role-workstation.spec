@@ -17,6 +17,7 @@ Requires:	initscripts
 Requires:	kernel-doc
 
 requires:	tsclient
+requires:	system-config-display
 
 # conditional dependencies as described at
 # https://fedoraproject.org/wiki/Packaging/DistTag
