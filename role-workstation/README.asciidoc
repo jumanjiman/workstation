@@ -1,0 +1,2 @@
+This layered package installs above a baseline package
+to configure the host as a graphical workstation.

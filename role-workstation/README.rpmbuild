@@ -1,0 +1,113 @@
+from https://fedoraproject.org/wiki/Packaging/ScriptletSnippets
+
+
+
+Syntax
+The basic syntax is similar to the %build, %install, and
+other sections of the rpm spec file. The scripts support
+a special flag, -p which allows the scriptlet to invoke
+a single program directly rather than having to spawn a
+shell to invoke the programs. (ie: %post -p /sbin/ldconfig)
+
+The scriptlets also take an argument, passed into them by
+the controlling rpmbuild process. This argument, accessed
+via $1 is the number of packages of this name which will
+be left on the system when the action completes, except
+for %pretrans and %posttrans which are always run with $1
+as 0 (%pretrans and %posttrans are available in rpm 4.4
+and later). So for the common case of install, upgrade,
+and uninstall we have:
+
+install	 upgrade	 uninstall
+ %pretrans	 $1 == 0	 $1 == 0	 (N/A)
+ %pre	 $1 == 1	 $1 == 2	 (N/A)
+ %post	 $1 == 1	 $1 == 2	 (N/A)
+ %preun	 (N/A)	 $1 == 1	 $1 == 0
+ %postun	 (N/A)	 $1 == 1	 $1 == 0
+ %posttrans	 $1 == 0	 $1 == 0	 (N/A)
+
+Note that these values will vary if there are multiple
+versions of the same package installed (This mostly
+occurs with parallel installable packages such as the
+kernel. However, it can also occur when errors prevent a
+package upgrade form completing.) So it is a good idea to
+use this construct:
+
+%pre
+if [ $1 -gt 1 ] ; then
+fi
+
+...for %pre and %post scripts rather than checking that it equals 2.
+
+Except in some really exceptional cases (if any), we want
+all scriptlets to exit with the zero exit status. Because
+rpm in its default configuration does not at the moment
+execute shell scriptlets with the -e argument to the shell,
+excluding explicit exit calls (frowned upon with a non-zero
+argument!), the exit status of the last command in a
+scriptlet determines its exit status. Most commands in the
+snippets in this document have a "|| :" appended to them,
+which is a generic trick to force the zero exit status for
+those commands whether they worked or not. Usually the most
+important bit is to apply this to the last command executed
+in a scriptlet, or to add a separate command such as plain
+":" or "exit 0" as the last one in a scriptlet. Note that
+depending on the case, other error checking/prevention
+measures may be more appropriate, as well as running some
+commands only if we saw a previous command in the scriptlet
+which is a must prerequisite to succeed.
+
+Non-zero exit codes from scriptlets break
+installs/upgrades/erases so that no further actions will
+be taken for that package in a transaction (see scriptlet
+ordering below), which may for example prevent an old
+version of a package from being erased on upgrades,
+leaving behind duplicate rpmdb entries and possibly
+stale, unowned files on the filesystem. There are some
+cases where letting the transaction to proceed when some
+things in scriptlets failed may result in partially broken
+setup. It is however often limited to that package only
+whereas letting a transaction to proceed with some packages
+dropped out on the fly is more likely to result in broader
+system wide problems.
+
+
+Scriptlet Ordering
+The scriptlets in %pre and %post are respectively run
+before and after a package is installed. The scriptlets
+%preun and %postun are run before and after a package
+is uninstalled. The scriptlets %pretrans and %posttrans
+are run at start and end of a transaction. On upgrade,
+the scripts are run in the following order:
+
+ %pretrans of new package
+ %pre of new package
+(package install)
+ %post of new package
+ %preun of old package
+(removal of old package)
+ %postun of old package
+ %posttrans of new package
+Snippets
+
+Shared libraries
+
+Installing shared libraries requires running /sbin/ldconfig
+to update the dynamic linker's cache files. These can be
+invoked like:
+
+%post
+/sbin/ldconfig
+%postun
+/sbin/ldconfig
+
+It is also common to invoke these with the '-p' option as
+they are often the only program invoked in a scriptlet:
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
+If applicable, the latter way is recommended because
+doing so will automatically add appropriate dependencies
+on /sbin/ldconfig to the package (and FWIW, will prevent
+unnecessarily launching a shell process in the scriptlets).

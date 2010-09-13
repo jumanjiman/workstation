@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# this script loads the pcspkr module if desired
+
+global_config=/etc/role-workstation/workstation.conf
+
+[[ -r $global_config ]] || exit 1
+
+. $global_config
+
+if [[ $bash_should_beep = true ]]; then
+  /sbin/modprobe pcspkr
+fi
