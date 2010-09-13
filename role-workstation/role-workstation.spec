@@ -20,6 +20,13 @@ requires:	tsclient
 requires:	system-config-display
 requires:	git-all
 
+# servers
+requires:	dhcp
+requires:	tftp-server
+requires:	bind
+requires:	bind-chroot
+requires:	httpd
+
 # conditional dependencies as described at
 # https://fedoraproject.org/wiki/Packaging/DistTag
 %if 0%{?fedora} >= 11
