@@ -16,6 +16,8 @@ Requires:	GConf2
 Requires:	initscripts
 Requires:	kernel-doc
 
+requires:	tsclient
+
 # conditional dependencies as described at
 # https://fedoraproject.org/wiki/Packaging/DistTag
 %if 0%{?fedora} >= 11
