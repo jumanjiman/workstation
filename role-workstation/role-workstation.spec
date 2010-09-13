@@ -18,6 +18,7 @@ Requires:	kernel-doc
 
 requires:	tsclient
 requires:	system-config-display
+requires:	git-all
 
 # conditional dependencies as described at
 # https://fedoraproject.org/wiki/Packaging/DistTag
