@@ -21,7 +21,7 @@ function apply_gconf() {
   done
 
   # close fd
-  exec 3<-
+  exec 3<&-
 }
 
 global_gconf=/etc/role-workstation/gconf-keys.conf
