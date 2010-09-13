@@ -6,7 +6,7 @@ Summary:	configures a graphical workstation
 Group:		System Environment/Base
 License:	GPLv3+
 URL:		http://github.com/jumanjiman/workstation
-Source0:	%{name}-%{version}.tgz
+Source0:	%{name}-%{version}.tar.gz
 buildarch:	noarch
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
