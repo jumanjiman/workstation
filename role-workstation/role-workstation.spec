@@ -1,5 +1,5 @@
 Name:		role-workstation
-Version:	0.2.2
+Version:	0.2.3
 Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
@@ -73,6 +73,9 @@ fi
 
 
 %changelog
+* Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.3-1
+- fix typo (jumanjiman@gmail.com)
+
 * Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.2-1
 - fix source spec for tito (jumanjiman@gmail.com)
 
