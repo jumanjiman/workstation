@@ -1,5 +1,5 @@
 Name:		role-workstation
-Version:	0.2.3
+Version:	0.2.4
 Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
@@ -98,6 +98,13 @@ fi
 
 
 %changelog
+* Mon Sep 13 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.4-1
+- requires documentation tools (jumanjiman@gmail.com)
+- workstation server dependencies (jumanjiman@gmail.com)
+- requires git-all (jumanjiman@gmail.com)
+- requires system-config-display (jumanjiman@gmail.com)
+- requires tsclient (jumanjiman@gmail.com)
+
 * Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.3-1
 - fix typo (jumanjiman@gmail.com)
 
