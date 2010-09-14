@@ -20,6 +20,20 @@ requires:	tsclient
 requires:	system-config-display
 requires:	git-all
 
+# authoring
+requires:	publican
+requires:	publican-redhatgps
+requires:	docbook-dtds
+requires:	docbook-utils
+requires:	docbook-simple
+requires:	docbook-style-xsl
+requires:	docbook-utils-pdf
+requires:	docbook5-schemas
+requires:	docbook2X
+requires:	docbook-slides
+requires:	docbook-style-dsssl
+requires:	docbook5-style-xsl
+
 # servers
 requires:	dhcp
 requires:	tftp-server
