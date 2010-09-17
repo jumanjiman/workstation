@@ -20,6 +20,10 @@ requires:	tsclient
 requires:	system-config-display
 requires:	git-all
 
+# email
+requires:	mutt
+requires:	grepmail
+
 # authoring
 requires:	publican
 requires:	publican-redhatgps
