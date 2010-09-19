@@ -93,11 +93,16 @@ summary: baseline development tools
 requires: baseline = %{version}-%{release}
 requires: baseline-release = %{version}-%{release}
 
+%if 0%{?fedora}
+requires: fedora-packager
+%endif
+
 # common tools
 requires: rpm-build
 requires: redhat-rpm-config
 requires: rpmlint
 requires: python-setuptools
+requires: python-devel
 
 # selinux tools
 requires: setools-devel
