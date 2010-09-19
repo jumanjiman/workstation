@@ -95,6 +95,7 @@ requires: baseline-release = %{version}-%{release}
 
 # common tools
 requires: rpm-build
+requires: redhat-rpm-config
 requires: rpmlint
 requires: python-setuptools
 
