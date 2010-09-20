@@ -1,11 +1,14 @@
 bash-profile-scripts
 ====================
 
+Overview
+--------
+
 Places files in `/etc/profiles.d` to configure bash.
 Override these by placing your settings in
 `~/.bashrc` BELOW the global source.
 
-Example in your `~/.bashrc`:
+Example of overriding in `~/.bashrc`:
 
 ----
 # Source global definitions
@@ -16,3 +19,13 @@ fi
 # override system-wide prefs here
 unalias c
 ----
+
+
+COPYING
+-------
+Specific rights are granted under license with this software:
+
+* `git-completion.sh` is licensed under GPLv2.
+* All other files are licensed under GPLv3.
+
+See files `COPYING.GPLv{2,3}` for the licenses.

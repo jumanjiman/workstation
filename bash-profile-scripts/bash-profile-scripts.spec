@@ -4,7 +4,7 @@ summary: Adds /etc/profile.d/ files for Bash
 version: 0.2.1
 release: 1%{?dist}
 
-license: GPLv3
+license: GPLv3 and GPLv2
 group: System Environment/Base
 
 url: http://github.com/jumanjiman/workstation
@@ -44,6 +44,7 @@ the way I like it.
 %{__install} -p -m644 src/pm-inputrc.sh %{buildroot}%{_sysconfdir}/profile.d
 %{__install} -p -m644 src/pm-clear.sh %{buildroot}%{_sysconfdir}/profile.d
 %{__install} -p -m644 src/pm-editor.sh %{buildroot}%{_sysconfdir}/profile.d
+%{__install} -p -m644 src/git-completion.sh %{buildroot}%{_sysconfdir}/profile.d
 
 
 %files
@@ -56,8 +57,11 @@ the way I like it.
 %config %{_sysconfdir}/profile.d/pm-inputrc.sh
 %config %{_sysconfdir}/profile.d/pm-clear.sh
 %config %{_sysconfdir}/profile.d/pm-editor.sh
+%config %{_sysconfdir}/profile.d/git-completion.sh
 %doc README.asciidoc
 %doc src/sample.bashrc
+%doc COPYING.GPLv2
+%doc COPYING.GPLv3
 
 %changelog
 * Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.1-1
