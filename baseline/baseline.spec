@@ -30,6 +30,7 @@ requires: bash >= 4
 requires: bridge-utils
 requires: chkconfig
 requires: device-mapper-multipath
+requires: dictd
 requires: dstat
 requires: grep
 requires: iproute
