@@ -38,6 +38,10 @@ requires:	docbook-slides
 requires:	docbook-style-dsssl
 requires:	docbook5-style-xsl
 
+# text utils
+requires:   dictd
+requires:   diction
+
 # servers
 requires:	dhcp
 requires:	tftp-server
