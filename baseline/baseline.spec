@@ -32,6 +32,7 @@ requires: chkconfig
 requires: device-mapper-multipath
 requires: dictd
 requires: dstat
+requires: ethtool
 requires: grep
 requires: iproute
 requires: iptraf
