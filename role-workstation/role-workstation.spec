@@ -18,6 +18,7 @@ Requires:	kernel-doc
 
 requires:	tsclient
 requires:	system-config-display
+requires:   xorg-x11-apps
 requires:	git-all
 
 # email
