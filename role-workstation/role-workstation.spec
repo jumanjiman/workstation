@@ -21,6 +21,9 @@ requires:	system-config-display
 requires:   xorg-x11-apps
 requires:	git-all
 
+# edit gnome menus
+requires:	alacarte
+
 # email
 requires:	mutt
 requires:	grepmail
