@@ -25,6 +25,11 @@ requires:	git-all
 requires:	mutt
 requires:	grepmail
 
+# instant messaging
+requires:	pidgin
+requires:	pidgin-otr
+requires:	purple-plugin_pack-pidgin
+
 # authoring
 requires:	publican
 requires:	publican-redhatgps
