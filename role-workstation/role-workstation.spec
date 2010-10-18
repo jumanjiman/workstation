@@ -112,6 +112,12 @@ fi
 
 
 %changelog
+* Mon Oct 18 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.4-2
+- require pidgin IM client (jumanjiman@gmail.com)
+- require xinput for troubleshooting (jumanjiman@gmail.com)
+- require dictd and diction text utilities (jumanjiman@gmail.com)
+- require mutt and grepmail (jumanjiman@gmail.com)
+
 * Mon Sep 13 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.4-1
 - requires documentation tools (jumanjiman@gmail.com)
 - workstation server dependencies (jumanjiman@gmail.com)
