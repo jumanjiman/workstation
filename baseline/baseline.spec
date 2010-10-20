@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.4
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -39,10 +39,12 @@ requires: iptraf
 requires: lslk
 requires: lsscsi
 requires: ltrace
+requires: mtr
 requires: mutt
 requires: mutrace
 requires: net-snmp
 requires: net-snmp-utils
+requires: ndisc6
 requires: nmap
 requires: openldap-devel
 requires: ntp
@@ -74,6 +76,7 @@ requires: systemtap-client
 requires: tuned-utils
 requires: oprofile
 requires: oprofile-jit
+requires: glibc-utils
 
 # selinux tools
 requires: policycoreutils
