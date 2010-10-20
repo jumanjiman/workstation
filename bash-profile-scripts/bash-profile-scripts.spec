@@ -1,7 +1,7 @@
 name: bash-profile-scripts
 summary: Adds /etc/profile.d/ files for Bash
 
-version: 0.2.2
+version: 0.2.3
 release: 1%{?dist}
 
 license: GPLv3 and GPLv2
@@ -64,6 +64,9 @@ the way I like it.
 %doc COPYING.GPLv3
 
 %changelog
+* Wed Oct 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.3-1
+- set environment variables for EiffelStudio (jumanjiman@gmail.com)
+
 * Mon Sep 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.2-1
 - add git-completion.sh (jumanjiman@gmail.com)
 
