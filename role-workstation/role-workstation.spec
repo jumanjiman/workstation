@@ -1,6 +1,6 @@
 Name:		role-workstation
 Version:	0.2.4
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	configures a graphical workstation
 
 Group:		System Environment/Base
@@ -15,11 +15,30 @@ Requires:	baseline
 Requires:	GConf2
 Requires:	initscripts
 Requires:	kernel-doc
+requires:	git-all
 
+# eclipse tools
+requires:	eclipse-demos
+requires:	eclipse-rpmstubby
+requires:	eclipse-rpm-editor
+requires:	eclipse-setools
+requires:	eclipse-pydev
+requires:	eclipse-systemtapgui
+requires:	systemtapguiserver
+requires:	eclipse-oprofile
+requires:	eclipse-linuxprofilingframework
+requires:	eclipse-valgrind
+requires:	eclipse-egit
+requires:	eclipse-cdt
+requires:	eclipse-emf-xsd
+requires:	eclipse-callgraph
+
+# thin clients
 requires:	tsclient
+
+# gui debugging
 requires:	system-config-display
 requires:   xorg-x11-apps
-requires:	git-all
 
 # edit gnome menus
 requires:	alacarte
