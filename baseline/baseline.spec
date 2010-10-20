@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.4
-Release: 4%{?dist}
+Version: 0.3.5
+Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -239,6 +239,9 @@ fi
 
 
 %changelog
+* Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.5-1
+- add yum repo for /tmp/tito (jumanjiman@gmail.com)
+
 * Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.4-4
 - require createrepo (jumanjiman@gmail.com)
 
