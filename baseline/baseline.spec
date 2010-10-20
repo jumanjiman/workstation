@@ -67,6 +67,7 @@ requires: lftp
 requires: krb5-workstation
 
 # profiling tools
+requires: blktrace
 requires: valgrind
 requires: systemtap-runtime
 requires: systemtap-client
