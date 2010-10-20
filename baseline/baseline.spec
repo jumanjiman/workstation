@@ -233,6 +233,8 @@ fi
 
 
 %changelog
+* Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.4-2
+- Additional dependencies
 * Sun Sep 12 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.4-1
 - add pmorgan.pubkey (jumanjiman@gmail.com)
 - add google.pubkey (jumanjiman@gmail.com)
