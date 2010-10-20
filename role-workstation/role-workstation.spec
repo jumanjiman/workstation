@@ -1,6 +1,6 @@
 Name:		role-workstation
-Version:	0.2.4
-Release:	3%{?dist}
+Version:	0.2.5
+Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
 Group:		System Environment/Base
@@ -154,6 +154,9 @@ fi
 
 
 %changelog
+* Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.5-1
+- add tips to documentation (jumanjiman@gmail.com)
+
 * Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.4-3
 - require profiling tools (jumanjiman@gmail.com)
 - require eclipse tools (jumanjiman@gmail.com)
