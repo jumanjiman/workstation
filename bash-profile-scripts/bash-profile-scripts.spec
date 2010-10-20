@@ -66,6 +66,9 @@ the way I like it.
 %doc COPYING.GPLv3
 
 %changelog
+* Wed Oct 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.3-2
+- sigh, add new file to spec file (jumanjiman@gmail.com)
+
 * Wed Oct 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.3-1
 - set environment variables for EiffelStudio (jumanjiman@gmail.com)
 
