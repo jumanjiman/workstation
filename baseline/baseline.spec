@@ -237,6 +237,9 @@ fi
 
 
 %changelog
+* Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.4-4
+- require createrepo (jumanjiman@gmail.com)
+
 * Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.4-3
 - require more troubleshooting tools (jumanjiman@gmail.com)
 
