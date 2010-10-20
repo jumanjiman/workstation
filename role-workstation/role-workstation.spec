@@ -151,6 +151,11 @@ fi
 
 
 %changelog
+* Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.4-3
+- require profiling tools (jumanjiman@gmail.com)
+- require eclipse tools (jumanjiman@gmail.com)
+- require alacarte to edit gnome menus (jumanjiman@gmail.com)
+
 * Mon Oct 18 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.4-2
 - require pidgin IM client (jumanjiman@gmail.com)
 - require xinput for troubleshooting (jumanjiman@gmail.com)
