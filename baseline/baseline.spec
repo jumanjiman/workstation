@@ -40,6 +40,7 @@ requires: lslk
 requires: lsscsi
 requires: ltrace
 requires: mutt
+requires: mutrace
 requires: net-snmp
 requires: net-snmp-utils
 requires: nmap
