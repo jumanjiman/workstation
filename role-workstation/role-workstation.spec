@@ -45,6 +45,10 @@ requires:	systemtap-testsuite
 requires:	tuned-utils
 requires:	dwarves
 requires:	spu-binutils
+requires:	seekwatcher
+
+# virtualization tools
+requires:	qemu-kvm-tools
 
 # thin clients
 requires:	tsclient
