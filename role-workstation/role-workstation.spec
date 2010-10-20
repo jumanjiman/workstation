@@ -33,6 +33,19 @@ requires:	eclipse-cdt
 requires:	eclipse-emf-xsd
 requires:	eclipse-callgraph
 
+# profiling tools
+requires:	oprofile-gui
+requires:	gprof2dot
+requires:	systemtap
+requires:	systemtap-client
+requires:	systemtap-grapher
+requires:	systemtap-runtime
+requires:	systemtap-server
+requires:	systemtap-testsuite
+requires:	tuned-utils
+requires:	dwarves
+requires:	spu-binutils
+
 # thin clients
 requires:	tsclient
 
