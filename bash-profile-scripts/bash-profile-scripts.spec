@@ -2,7 +2,7 @@ name: bash-profile-scripts
 summary: Adds /etc/profile.d/ files for Bash
 
 version: 0.2.3
-release: 1%{?dist}
+release: 2%{?dist}
 
 license: GPLv3 and GPLv2
 group: System Environment/Base
@@ -45,6 +45,7 @@ the way I like it.
 %{__install} -p -m644 src/pm-clear.sh %{buildroot}%{_sysconfdir}/profile.d
 %{__install} -p -m644 src/pm-editor.sh %{buildroot}%{_sysconfdir}/profile.d
 %{__install} -p -m644 src/git-completion.sh %{buildroot}%{_sysconfdir}/profile.d
+%{__install} -p -m644 src/eiffel-studio.sh %{buildroot}%{_sysconfdir}/profile.d
 
 
 %files
@@ -58,6 +59,7 @@ the way I like it.
 %config %{_sysconfdir}/profile.d/pm-clear.sh
 %config %{_sysconfdir}/profile.d/pm-editor.sh
 %config %{_sysconfdir}/profile.d/git-completion.sh
+%config %{_sysconfdir}/profile.d/eiffel-studio.sh
 %doc README.asciidoc
 %doc src/sample.bashrc
 %doc COPYING.GPLv2
