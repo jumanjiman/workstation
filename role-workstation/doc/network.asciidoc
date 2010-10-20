@@ -1,0 +1,45 @@
+== Network
+
+=== Test network throughput
+
+dom0 system:
+----
+nc -l 12345 | dd of=/dev/null
+----
+
+domU system:
+----
+dd if=/dev/zero bs=1000 count=1000000 |nc -v 190.1.5.126 12345
+----
+
+=== Source-based routing
+
+http://wiki.openvz.org/Source_based_routing
+
+http://www.wlug.org.nz/SourceBasedRouting
+
+
+=== Hacks
+
+http://unixjunkie.blogspot.com/2006/01/two-cool-bash-tricks.html
+
+Bash does some super-cool magic when you access /dev/tcp/hostname/port. It will create a TCP socket that is connected to the named host on the given port. This lets you easily use network sockets with regular shell IO redirection. For example, the following simply prints the time from NIST:
+
+
+cat < /dev/tcp/time.nist.gov/13
+
+
+And YES, you can read AND write to these sockets. Here's how. The following example fetches the source for the www.google.com homepage.
+
+
+exec 5<> /dev/tcp/www.google.com/80
+printf "GET / HTTP/1.0\n\n" >&5
+cat <&5
+exec 5>&-
+
+
+Check out the bash(1) manpage for more details.
+
+
+// vim: set syntax=asciidoc:
+// vim: set ts=4:

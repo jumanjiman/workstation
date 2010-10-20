@@ -1,0 +1,34 @@
+== Miscellaneous
+
+=== sudo
+
+----
+Hi,
+
+> in RHEL there is by default in sudoers
+> 
+> Defaults requiretty
+> 
+> which is all ok from security perspective. However, when adding a
+> command allowed for all users like
+> 
+> ALL ALL=NOPASSWD: /usr/sbin/foo
+> 
+> it makes one wonder dearly is there a way to make this one particular
+> command not to require a tty by sudo? I've tried quite a few
+> combinations of Defaults/!requiretty/etc but to no avail.
+
+it seems that with RHEL 5 this is not unfortunately possible but with
+F12 one could do (thanks to Karsten Hopp):
+
+Defaults requiretty
+Cmnd_Alias     FOO = /usr/sbin/foo
+Defaults!FOO        !requiretty
+ALL ALL=NOPASSWD:     FOO
+----
+
+
+
+// vim: set syntax=asciidoc:
+// vim: set ts=4:
+

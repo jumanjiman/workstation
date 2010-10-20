@@ -1,0 +1,20 @@
+== Clustering
+
+=== Create fence_xvm.key on the command line
+
+It's simple to create a virtual fence key on the command line:
+
+----
+dd if=/dev/urandom of=/etc/cluster/fence-xvm.key bs=4k count=1
+----
+
+Then `scp` the key to all necessary hosts.
+
+
+
+
+
+
+
+// vim: set syntax=asciidoc:
+// vim: set ts=4:

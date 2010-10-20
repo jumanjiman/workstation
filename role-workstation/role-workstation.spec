@@ -10,6 +10,8 @@ Source0:	%{name}-%{version}.tar.gz
 buildarch:	noarch
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
+BuildRequires: asciidoc
+
 Requires:	nautilus-open-terminal
 Requires:	baseline
 Requires:	GConf2
@@ -119,7 +121,7 @@ fit.
 
 
 %build
-# nothing to build
+asciidoc -b html4 doc/tips.asciidoc
 
 
 %install
@@ -138,6 +140,7 @@ fit.
 %defattr(-,root,root,-)
 %doc README.asciidoc
 %doc README.rpmbuild
+%doc doc/*
 %config %{_sysconfdir}/role-workstation/gconf-keys.conf
 %config %{_sysconfdir}/role-workstation/workstation.conf
 %{_sysconfdir}/profile.d/workstation.sh

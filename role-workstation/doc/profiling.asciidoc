@@ -1,0 +1,76 @@
+== Profiling
+
+=== SystemTap
+
+.Interesting Links:
+https://fedoraproject.org/wiki/SystemTap_in_Fedora_12
+http://sourceware.org/systemtap/wiki/SystemtapDtraceComparison
+
+What are kernel tracepoints, and how does this feature help developers?
+
+In Fedora 12 SystemTap has been extended to offer kernel tracepoint support.
+Earlier versions of SystemTap used kprobes to implement the
+instrumentation. Kprobes were implemented with the breakpoint instruction,
+and required using an relatively expensive trap operation. In some cases
+it was also difficult to portably specify where to place the kprobe using
+SystemTap because of changes in the source code. 
+
+Tracepoints are much lower overhead than kprobes. They are placed in
+the kernel by kernel developer and as a result do not suffer from some
+of the portability issue of kprobes-based instrumentation. Unlike
+kprobes, the tracepoints do not need the dwarf debuginfo to find where
+to place the probe. People will see a number of tracepoints available
+in the 2.6.31 kernel in Fedora 12. If you are curious to see what
+tracepoints are available in the running kernel, you can use the
+following SystemTap command: 
+
+----
+stap -L 'kernel.trace("*")'|sort
+----
+
+==== Dwarf debuginfo
+
+We keep hearing about "dwarf debuginfo," and that SystemTap supports this
+format. What's changed from previous kinds of debuginfo?
+
+Traditional debuggers (and SystemTap) need to maps between the executable
+code and the original source code. This information is contained in DWARF
+debuginfo. The DWARF standard has been used for some time in Linux. It
+maps line number in the source code and variables names into locations in
+memory. SystemTap makes use of this information so that a user can probe
+function "foo" and get the value of variable "x" rather than saying they
+want a probe at memory address 0x8000413 and read the data out of
+0xffff8000. 
+
+As a normal part of the build process RPMs executables are built with
+debugging information. Towards the end of the build process the DWARF
+debuginfo is extracted from the executables and placed in a separate
+debuginfo RPM and a link is made in the original file to the new
+DWARF debuginfo file in this separate debuginfo RPM. Thus, to use
+SystemTap on an executable, one just needs to install the debuginfo
+RPM associated with the binary RPM. If the debuginfo isn't installed
+on the system, the newest versions of SystemTap will even provide a
+suggestion of the command line to run to get the appropriate
+debuginfo RPM installed. 
+
+One complaint heard is that the debuginfo RPMs can be large.
+Roland McGrath is working on tools to eliminate redudancies in
+the debuginfo RPMs and reduced their size. 
+
+https://fedoraproject.org/wiki/Features/DebugInfoRevamp 
+
+
+==== Eclipse
+
+[TIP]
+The Eclipse plugin, `eclipse-systemtapgui`, provides an Integrated Development
+Environment (IDE) for systemtap scripts. It also provides some tools for
+quickly generating graphs from the output of the script.
+
+
+
+
+
+
+// vim: set syntax=asciidoc:
+// vim: set ts=4:

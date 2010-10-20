@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.4.5">
+<title>Tips for Linux</title>
+</head>
+<body>
+<h1>Tips for Linux</h1>
+<p>
+<strong>Paul Morgan</strong><br>
+<tt>&lt;<a href="mailto:pmorgan@redhat.com">pmorgan@redhat.com</a>&gt;</tt><br>
+version 1.1,
+2009-Oct-11
+</p>
+<hr>
+<h2><a name="_profiling"></a>Profiling</h2>
+<h3><a name="_systemtap"></a>SystemTap</h3>
+<p><b>Interesting Links:</b><br><a href="https://fedoraproject.org/wiki/SystemTap_in_Fedora_12">https://fedoraproject.org/wiki/SystemTap_in_Fedora_12</a>
+<a href="http://sourceware.org/systemtap/wiki/SystemtapDtraceComparison">http://sourceware.org/systemtap/wiki/SystemtapDtraceComparison</a></p>
+<p>What are kernel tracepoints, and how does this feature help developers?</p>
+<p>In Fedora 12 SystemTap has been extended to offer kernel tracepoint support.
+Earlier versions of SystemTap used kprobes to implement the
+instrumentation. Kprobes were implemented with the breakpoint instruction,
+and required using an relatively expensive trap operation. In some cases
+it was also difficult to portably specify where to place the kprobe using
+SystemTap because of changes in the source code.</p>
+<p>Tracepoints are much lower overhead than kprobes. They are placed in
+the kernel by kernel developer and as a result do not suffer from some
+of the portability issue of kprobes-based instrumentation. Unlike
+kprobes, the tracepoints do not need the dwarf debuginfo to find where
+to place the probe. People will see a number of tracepoints available
+in the 2.6.31 kernel in Fedora 12. If you are curious to see what
+tracepoints are available in the running kernel, you can use the
+following SystemTap command:</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" cellpadding="10"><tr><td>
+<pre>stap -L 'kernel.trace("*")'|sort</pre>
+</td></tr></table>
+<h4><a name="_dwarf_debuginfo"></a>Dwarf debuginfo</h4>
+<p>We keep hearing about "dwarf debuginfo," and that SystemTap supports this
+format. What&#8217;s changed from previous kinds of debuginfo?</p>
+<p>Traditional debuggers (and SystemTap) need to maps between the executable
+code and the original source code. This information is contained in DWARF
+debuginfo. The DWARF standard has been used for some time in Linux. It
+maps line number in the source code and variables names into locations in
+memory. SystemTap makes use of this information so that a user can probe
+function "foo" and get the value of variable "x" rather than saying they
+want a probe at memory address 0x8000413 and read the data out of
+0xffff8000.</p>
+<p>As a normal part of the build process RPMs executables are built with
+debugging information. Towards the end of the build process the DWARF
+debuginfo is extracted from the executables and placed in a separate
+debuginfo RPM and a link is made in the original file to the new
+DWARF debuginfo file in this separate debuginfo RPM. Thus, to use
+SystemTap on an executable, one just needs to install the debuginfo
+RPM associated with the binary RPM. If the debuginfo isn&#8217;t installed
+on the system, the newest versions of SystemTap will even provide a
+suggestion of the command line to run to get the appropriate
+debuginfo RPM installed.</p>
+<p>One complaint heard is that the debuginfo RPMs can be large.
+Roland McGrath is working on tools to eliminate redudancies in
+the debuginfo RPMs and reduced their size.</p>
+<p><a href="https://fedoraproject.org/wiki/Features/DebugInfoRevamp">https://fedoraproject.org/wiki/Features/DebugInfoRevamp</a></p>
+<h4><a name="_eclipse"></a>Eclipse</h4>
+<table frame="void" cellpadding="8">
+<tr valign="top"><td><p><b><u>Tip</u></b></p></td>
+<td style="border-left: 1px solid silver;">The Eclipse plugin, <tt>eclipse-systemtapgui</tt>, provides an Integrated Development
+Environment (IDE) for systemtap scripts. It also provides some tools for
+quickly generating graphs from the output of the script.</td></tr></table>
+<hr>
+<h2><a name="_storage"></a>Storage</h2>
+<h3><a name="_pv_8217_s_on_raw_devices"></a>PV&#8217;s on raw devices</h3>
+<table border="0" bgcolor="#e8e8e8" width="100%" cellpadding="10"><tr><td>
+<pre>&gt; On Thu, 2007-08-23 at 15:10 -0500, Ian Pilcher wrote:
+&gt;&gt; EMC is recommending that my customer align their partitions on 64KiB
+&gt;&gt; boundaries, using the following procedure:
+&gt;&gt;
+&gt;&gt; To align the disk partition on a linux host:
+&gt;&gt;
+&gt;&gt;   host# fdisk /dev/emcpower&lt;x&gt;, where emcpower&lt;x&gt; is the device on which
+&gt;&gt;     you would like to create the partition
+&gt;&gt;   Type “x” to get into expert mode
+&gt;&gt;   Type “b” to specify the starting block for partitions
+&gt;&gt;   Type “1” to select partition #1
+&gt;&gt;   Type “128” to make partition #1 to align on a 64KB boundary
+&gt;&gt;   Type “w” to write label and the partition information to disk
+&gt;&gt;
+&gt;&gt; (Presumably, 64KiB is the chunk size of their striped LUNs.)
+&gt;&gt;
+
+&gt; Even better is to simply not use partitioning at all and tag the LUNs
+&gt; directly as PVs and use LVM. We ran into this originally when we found
+&gt; that physical offset caused by the partition table itself impacted
+&gt; performance - simply not using a partition table at all fixes this
+&gt; problem.
+&gt;
+&gt; Other than for boot disks, I really don't see the point of partition
+&gt; tables at all these days.</pre>
+</td></tr></table>
+<p>Chris Snook replied:</p>
+<p>Putting PVs on raw block devices can cause duplicate label issues with
+multipathing.  Those often annoy customers more than the performance hit from
+misalignment.  The fdisk expert mode hack that EMC is recommending basically
+pads the partition table to preserve alignment without risking duplicate label
+issues, but really we should have a feature to do this automatically.</p>
+<hr>
+<h2><a name="_clustering"></a>Clustering</h2>
+<h3><a name="_create_fence_xvm_key_on_the_command_line"></a>Create fence_xvm.key on the command line</h3>
+<p>It&#8217;s simple to create a virtual fence key on the command line:</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" cellpadding="10"><tr><td>
+<pre>dd if=/dev/urandom of=/etc/cluster/fence-xvm.key bs=4k count=1</pre>
+</td></tr></table>
+<p>Then <tt>scp</tt> the key to all necessary hosts.</p>
+<hr>
+<h2><a name="_network"></a>Network</h2>
+<h3><a name="_test_network_throughput"></a>Test network throughput</h3>
+<p>dom0 system:</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" cellpadding="10"><tr><td>
+<pre>nc -l 12345 | dd of=/dev/null</pre>
+</td></tr></table>
+<p>domU system:</p>
+<table border="0" bgcolor="#e8e8e8" width="100%" cellpadding="10"><tr><td>
+<pre>dd if=/dev/zero bs=1000 count=1000000 |nc -v 190.1.5.126 12345</pre>
+</td></tr></table>
+<h3><a name="_source_based_routing"></a>Source-based routing</h3>
+<p><a href="http://wiki.openvz.org/Source_based_routing">http://wiki.openvz.org/Source_based_routing</a></p>
+<p><a href="http://www.wlug.org.nz/SourceBasedRouting">http://www.wlug.org.nz/SourceBasedRouting</a></p>
+<h3><a name="_hacks"></a>Hacks</h3>
+<p><a href="http://unixjunkie.blogspot.com/2006/01/two-cool-bash-tricks.html">http://unixjunkie.blogspot.com/2006/01/two-cool-bash-tricks.html</a></p>
+<p>Bash does some super-cool magic when you access /dev/tcp/hostname/port. It will create a TCP socket that is connected to the named host on the given port. This lets you easily use network sockets with regular shell IO redirection. For example, the following simply prints the time from NIST:</p>
+<p>cat &lt; /dev/tcp/time.nist.gov/13</p>
+<p>And YES, you can read AND write to these sockets. Here&#8217;s how. The following example fetches the source for the www.google.com homepage.</p>
+<p>exec 5&lt;&gt; /dev/tcp/www.google.com/80
+printf "GET / HTTP/1.0\n\n" &gt;&amp;5
+cat &lt;&amp;5
+exec 5&gt;&amp;-</p>
+<p>Check out the bash(1) manpage for more details.</p>
+<hr>
+<h2><a name="_miscellaneous"></a>Miscellaneous</h2>
+<h3><a name="_sudo"></a>sudo</h3>
+<table border="0" bgcolor="#e8e8e8" width="100%" cellpadding="10"><tr><td>
+<pre>Hi,
+
+&gt; in RHEL there is by default in sudoers
+&gt;
+&gt; Defaults requiretty
+&gt;
+&gt; which is all ok from security perspective. However, when adding a
+&gt; command allowed for all users like
+&gt;
+&gt; ALL ALL=NOPASSWD: /usr/sbin/foo
+&gt;
+&gt; it makes one wonder dearly is there a way to make this one particular
+&gt; command not to require a tty by sudo? I've tried quite a few
+&gt; combinations of Defaults/!requiretty/etc but to no avail.
+
+it seems that with RHEL 5 this is not unfortunately possible but with
+F12 one could do (thanks to Karsten Hopp):
+
+Defaults requiretty
+Cmnd_Alias     FOO = /usr/sbin/foo
+Defaults!FOO        !requiretty
+ALL ALL=NOPASSWD:     FOO</pre>
+</td></tr></table>
+<p></p>
+<p></p>
+<hr><p><small>
+Version 1.1<br>
+Last updated 2010-10-19 21:51:43 EDT
+</small></p>
+</body>
+</html>

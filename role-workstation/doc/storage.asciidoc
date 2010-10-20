@@ -1,0 +1,47 @@
+== Storage
+
+=== PV's on raw devices
+
+----
+> On Thu, 2007-08-23 at 15:10 -0500, Ian Pilcher wrote:
+>> EMC is recommending that my customer align their partitions on 64KiB
+>> boundaries, using the following procedure:
+>>
+>> To align the disk partition on a linux host:
+>>
+>>   host# fdisk /dev/emcpower<x>, where emcpower<x> is the device on which
+>>     you would like to create the partition
+>>   Type “x” to get into expert mode
+>>   Type “b” to specify the starting block for partitions
+>>   Type “1” to select partition #1
+>>   Type “128” to make partition #1 to align on a 64KB boundary
+>>   Type “w” to write label and the partition information to disk
+>>
+>> (Presumably, 64KiB is the chunk size of their striped LUNs.)
+>>
+
+> Even better is to simply not use partitioning at all and tag the LUNs
+> directly as PVs and use LVM. We ran into this originally when we found
+> that physical offset caused by the partition table itself impacted
+> performance - simply not using a partition table at all fixes this
+> problem.
+> 
+> Other than for boot disks, I really don't see the point of partition
+> tables at all these days.
+----
+
+Chris Snook replied:
+
+Putting PVs on raw block devices can cause duplicate label issues with 
+multipathing.  Those often annoy customers more than the performance hit from 
+misalignment.  The fdisk expert mode hack that EMC is recommending basically 
+pads the partition table to preserve alignment without risking duplicate label 
+issues, but really we should have a feature to do this automatically.
+
+
+
+
+
+
+// vim: set syntax=asciidoc:
+// vim: set ts=4:
