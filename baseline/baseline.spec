@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.4
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -64,6 +64,14 @@ requires: subversion
 requires: traceroute
 requires: lftp
 requires: krb5-workstation
+
+# profiling tools
+requires: valgrind
+requires: systemtap-runtime
+requires: systemtap-client
+requires: tuned-utils
+requires: oprofile
+requires: oprofile-jit
 
 # selinux tools
 requires: policycoreutils
