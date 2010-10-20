@@ -144,6 +144,7 @@ Workstation repo to configure yum for local repo
 
 %files release
 %config %{_sysconfdir}/yum.repos.d/workstation.repo
+%config %{_sysconfdir}/yum.repos.d/tmp-tito.repo
 %config %{_sysconfdir}/yum.repos.d/google-chrome-stable.repo
 %config %{_sysconfdir}/pki/rpm-gpg/pmorgan.pubkey
 %config %{_sysconfdir}/pki/rpm-gpg/google.pubkey
@@ -178,6 +179,7 @@ Workstation repo to configure yum for local repo
 
 # files for -release subpkg
 %{__install} -p -m644 src/workstation.repo %{buildroot}%{_sysconfdir}/yum.repos.d
+%{__install} -p -m644 src/tmp-tito.repo %{buildroot}%{_sysconfdir}/yum.repos.d
 %{__install} -p -m644 src/google-chrome-stable.repo %{buildroot}%{_sysconfdir}/yum.repos.d
 %{__install} -p -m644 src/pmorgan.pubkey %{buildroot}%{_sysconfdir}/pki/rpm-gpg/pmorgan.pubkey
 %{__install} -p -m644 src/google.pubkey %{buildroot}%{_sysconfdir}/pki/rpm-gpg/google.pubkey
