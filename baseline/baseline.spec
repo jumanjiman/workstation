@@ -241,6 +241,9 @@ fi
 
 
 %changelog
+* Wed Oct 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.5-2
+- requires wd (jumanjiman@gmail.com)
+
 * Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.5-1
 - add yum repo for /tmp/tito (jumanjiman@gmail.com)
 
