@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.5
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -79,6 +79,7 @@ requires: tuned-utils
 requires: oprofile
 requires: oprofile-jit
 requires: glibc-utils
+requires: frysk
 
 # selinux tools
 requires: policycoreutils
