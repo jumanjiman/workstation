@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.5
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -11,9 +11,11 @@ Source0: %{name}-%{version}.tar.gz
 buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Buildarch: noarch
 
+# my custom RPMs
 requires: reach
 requires: bash-profile-scripts
 requires: baseline-release = %{version}-%{release}
+requires: wd >= 0.9-2
 
 # cli access to pastebin
 requires: nopaste
