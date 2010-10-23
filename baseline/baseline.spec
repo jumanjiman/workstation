@@ -243,6 +243,9 @@ fi
 
 
 %changelog
+* Sat Oct 23 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.5-4
+- requires tcping (jumanjiman@gmail.com)
+
 * Thu Oct 21 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.5-3
 - requires frysk (jumanjiman@gmail.com)
 
