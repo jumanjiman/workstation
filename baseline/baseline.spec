@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.5
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -69,6 +69,7 @@ requires: subversion
 requires: traceroute
 requires: lftp
 requires: krb5-workstation
+requires: tcping
 
 # profiling tools
 requires: blktrace
