@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.5
-Release: 4%{?dist}
+Version: 0.3.6
+Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -244,6 +244,9 @@ fi
 
 
 %changelog
+* Mon Oct 25 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-1
+- requires blktrace (jumanjiman@gmail.com)
+
 * Sat Oct 23 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.5-4
 - requires tcping (jumanjiman@gmail.com)
 
