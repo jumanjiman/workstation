@@ -114,6 +114,7 @@ requires: baseline-release = %{version}-%{release}
 
 %if 0%{?fedora}
 requires: fedora-packager
+requires: blktrace
 %endif
 
 # common tools
