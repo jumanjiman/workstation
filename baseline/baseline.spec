@@ -247,6 +247,9 @@ fi
 
 
 %changelog
+* Tue Nov 02 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-2
+- avoid mono-core due to encumbrances (jumanjiman@gmail.com)
+
 * Mon Oct 25 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-1
 - requires blktrace (jumanjiman@gmail.com)
 
