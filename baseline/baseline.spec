@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.6
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
