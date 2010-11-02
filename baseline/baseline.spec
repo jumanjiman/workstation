@@ -11,6 +11,9 @@ Source0: %{name}-%{version}.tar.gz
 buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Buildarch: noarch
 
+# no encumbered IP
+conflicts: mono-core
+
 # my custom RPMs
 requires: reach
 requires: bash-profile-scripts
