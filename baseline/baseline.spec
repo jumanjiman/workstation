@@ -249,6 +249,9 @@ fi
 
 
 %changelog
+* Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-3
+- requires rpm-manifest and rpm-manifest-etckeeper (jumanjiman@gmail.com)
+
 * Tue Nov 02 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-2
 - avoid mono-core due to encumbrances (jumanjiman@gmail.com)
 
