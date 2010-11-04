@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.6
-Release: 2%{?dist}
+Release: 3%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -19,6 +19,8 @@ requires: reach
 requires: bash-profile-scripts
 requires: baseline-release = %{version}-%{release}
 requires: wd >= 0.9-2
+requires: rpm-manifest
+requires: rpm-manifest-etckeeper
 
 # cli access to pastebin
 requires: nopaste
