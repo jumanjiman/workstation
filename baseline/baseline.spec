@@ -129,6 +129,7 @@ requires: rpmlint
 requires: python-setuptools
 requires: python-devel
 requires: createrepo
+requires: cscope
 
 # selinux tools
 requires: setools-devel
