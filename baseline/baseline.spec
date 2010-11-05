@@ -250,6 +250,9 @@ fi
 
 
 %changelog
+* Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-4
+- requires cscope (jumanjiman@gmail.com)
+
 * Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-3
 - requires rpm-manifest and rpm-manifest-etckeeper (jumanjiman@gmail.com)
 
