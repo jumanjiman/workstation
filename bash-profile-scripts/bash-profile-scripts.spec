@@ -46,6 +46,7 @@ the way I like it.
 %{__install} -p -m644 src/pm-editor.sh %{buildroot}%{_sysconfdir}/profile.d
 %{__install} -p -m644 src/git-completion.sh %{buildroot}%{_sysconfdir}/profile.d
 %{__install} -p -m644 src/eiffel-studio.sh %{buildroot}%{_sysconfdir}/profile.d
+%{__install} -p -m644 src/kcscope.sh %{buildroot}%{_sysconfdir}/profile.d
 
 
 %files
@@ -60,6 +61,7 @@ the way I like it.
 %config %{_sysconfdir}/profile.d/pm-editor.sh
 %config %{_sysconfdir}/profile.d/git-completion.sh
 %config %{_sysconfdir}/profile.d/eiffel-studio.sh
+%config %{_sysconfdir}/profile.d/kcscope.sh
 %doc README.asciidoc
 %doc src/sample.bashrc
 %doc COPYING.GPLv2
