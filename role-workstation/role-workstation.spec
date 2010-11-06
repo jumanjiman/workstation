@@ -102,6 +102,9 @@ requires:	httpd
 Requires:	bash-doc
 Requires:	man-pages
 Requires:	yum-plugin-protect-packages
+Requires:	diveintopython
+Requires:	diveintopython-pdf
+Requires:	python-application
 %endif
 
 # see also https://fedoraproject.org/wiki/Packaging/ScriptletSnippets
