@@ -120,6 +120,7 @@ requires: baseline-release = %{version}-%{release}
 %if 0%{?fedora}
 requires: fedora-packager
 requires: blktrace
+requires: diveintopython-txt
 %endif
 
 # common tools
