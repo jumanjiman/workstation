@@ -127,6 +127,7 @@ requires: diveintopython-txt
 requires: rpm-build
 requires: redhat-rpm-config
 requires: rpmlint
+requires: rpmdevtools
 requires: python-setuptools
 requires: python-devel
 requires: createrepo
