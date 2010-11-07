@@ -160,6 +160,10 @@ fi
 
 
 %changelog
+* Sun Nov 07 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.5-2
+- s-c-display is orphaned in f14 (jumanjiman@gmail.com)
+- python development utils (jumanjiman@gmail.com)
+
 * Tue Oct 19 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.5-1
 - add tips to documentation (jumanjiman@gmail.com)
 
