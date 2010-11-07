@@ -1,6 +1,6 @@
 Name:		role-workstation
 Version:	0.2.5
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	configures a graphical workstation
 
 Group:		System Environment/Base
@@ -56,7 +56,10 @@ requires:	qemu-kvm-tools
 requires:	tsclient
 
 # gui debugging
+%if 0%{?fedora} < 14
+# this is orphaned in F14
 requires:	system-config-display
+%endif
 requires:   xorg-x11-apps
 
 # edit gnome menus
