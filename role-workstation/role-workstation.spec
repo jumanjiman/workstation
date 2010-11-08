@@ -110,6 +110,10 @@ Requires:	diveintopython-pdf
 Requires:	python-application
 %endif
 
+%if 0%{?fedora} >= 14
+Requires:	compizconfig-backend-gconf
+%endif
+
 # see also https://fedoraproject.org/wiki/Packaging/ScriptletSnippets
 
 %description
