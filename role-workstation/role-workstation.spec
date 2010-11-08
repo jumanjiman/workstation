@@ -1,6 +1,6 @@
 Name:		role-workstation
-Version:	0.2.5
-Release:	2%{?dist}
+Version:	0.2.6
+Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
 Group:		System Environment/Base
@@ -164,6 +164,10 @@ fi
 
 
 %changelog
+* Mon Nov 08 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.6-1
+- ensure compiz uses gconf (jumanjiman@gmail.com)
+- double-click titlebar to shade windows (jumanjiman@gmail.com)
+
 * Sun Nov 07 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.5-2
 - s-c-display is orphaned in f14 (jumanjiman@gmail.com)
 - python development utils (jumanjiman@gmail.com)
