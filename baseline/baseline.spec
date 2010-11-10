@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.6
-Release: 4%{?dist}
+Version: 0.3.7
+Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -258,6 +258,13 @@ fi
 
 
 %changelog
+* Wed Nov 10 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.7-1
+- avoid rpmlint warnings (jumanjiman@gmail.com)
+- require rss2email (jumanjiman@gmail.com)
+- add instructions for rss2email (jumanjiman@gmail.com)
+- require rpmdevtools (jumanjiman@gmail.com)
+- python book in txt format (jumanjiman@gmail.com)
+
 * Thu Nov 04 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.6-4
 - requires cscope (jumanjiman@gmail.com)
 
