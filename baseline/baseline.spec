@@ -106,6 +106,7 @@ for my machine.
 %{_sbindir}/disable-zeroconf
 %{_sbindir}/disable-services
 %doc README.asciidoc
+%doc rss2email.asciidoc
 
 # ----------------------------------------------------------------------
 
