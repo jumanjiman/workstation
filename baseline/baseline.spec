@@ -28,6 +28,9 @@ requires: nopaste
 # satserver tools
 requires: spacecmd
 
+# newsreader from epel and fedora
+requires: rss2email
+
 # browser
 requires: google-chrome
 
