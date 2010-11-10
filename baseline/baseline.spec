@@ -145,6 +145,7 @@ requires: eclipse-setools
 Developer tools for consistent Fedora build.
 
 %files devel
+%defattr(-,root,root,-)
 %doc README.asciidoc
 
 # ----------------------------------------------------------------------
@@ -160,6 +161,7 @@ summary: workstation repo for baseline
 Workstation repo to configure yum for local repo
 
 %files release
+%defattr(-,root,root-)
 %config %{_sysconfdir}/yum.repos.d/workstation.repo
 %config %{_sysconfdir}/yum.repos.d/tmp-tito.repo
 %config %{_sysconfdir}/yum.repos.d/google-chrome-stable.repo
