@@ -62,6 +62,7 @@ requires: patchutils
 requires: setroubleshoot
 requires: sg3_utils
 requires: strace
+requires: syslinux
 requires: sysstat
 requires: system-config-kdump
 requires: system-config-network
