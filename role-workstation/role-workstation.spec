@@ -99,6 +99,9 @@ requires:	bind
 requires:	bind-chroot
 requires:	httpd
 
+# storage server
+requires:	scsi-target-utils
+
 # conditional dependencies as described at
 # https://fedoraproject.org/wiki/Packaging/DistTag
 %if 0%{?fedora} >= 11
