@@ -60,6 +60,7 @@ requires: openldap-devel
 requires: ntp
 requires: patchutils
 requires: setroubleshoot
+requires: iscsi-initiator-utils
 requires: sg3_utils
 requires: strace
 requires: syslinux
