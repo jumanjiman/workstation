@@ -1,5 +1,5 @@
 Name:		role-workstation
-Version:	0.2.6
+Version:	0.2.7
 Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
@@ -167,6 +167,9 @@ fi
 
 
 %changelog
+* Tue Nov 30 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.7-1
+- require scsi-target-utils (jumanjiman@gmail.com)
+
 * Mon Nov 08 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.6-1
 - ensure compiz uses gconf (jumanjiman@gmail.com)
 - double-click titlebar to shade windows (jumanjiman@gmail.com)
