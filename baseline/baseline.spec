@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.7
+Version: 0.3.8
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
@@ -260,6 +260,10 @@ fi
 
 
 %changelog
+* Tue Nov 30 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.8-1
+- require iscsi client tools (jumanjiman@gmail.com)
+- require syslinux (jumanjiman@gmail.com)
+
 * Wed Nov 10 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.7-1
 - avoid rpmlint warnings (jumanjiman@gmail.com)
 - require rss2email (jumanjiman@gmail.com)
