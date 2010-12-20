@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.10
-Release: 2%{?dist}
+Version: 0.3.11
+Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -275,6 +275,11 @@ fi
 
 
 %changelog
+* Mon Dec 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.11-1
+- improved exit status of verify-baseline (jumanjiman@gmail.com)
+- verify-baseline checks etckeeper init (jumanjiman@gmail.com)
+- initialize etckeeper during postinstall (jumanjiman@gmail.com)
+
 * Mon Dec 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.10-1
 - require openldap-clients (jumanjiman@gmail.com)
 
