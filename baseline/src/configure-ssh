@@ -1,0 +1,106 @@
+#!/bin/bash
+
+# modifies config files:
+# ----------------------
+client_config=/etc/ssh/ssh_config
+server_config=/etc/ssh/sshd_config
+
+# note on selinux file contexts
+# -----------------------------
+# This script uses temp files to make modifications,
+# and it uses `cat' instead of `cp' to preserve selinux contexts.
+# This script will fail if the root shell has set "noclobber".
+
+# check if we have root privileges
+if [ $(id -u) -ne 0 ]; then
+  echo "WARNING: running without root privileges; nothing will be updated" >&2
+fi
+
+# define useful functions
+# -----------------------
+prog=$(basename $0)
+
+function tmp_file() {
+  # purpose: create a file in /tmp and print the filename on stdout
+  # inputs: none
+  # outputs: filename on stdout
+  # return code:
+  #   success=0
+  #   failure=non-zero
+  _ctr=0
+  _file=""
+  while [ $_ctr -lt 5 ]; do
+    _ctr=$(( _ctr + 1 ))
+    _file=$(mktemp --tmpdir=/tmp tmp.XXXXXXXXXXX)
+    _rc=$?
+  done
+  echo $_file
+  return $_rc
+}
+
+function delete_lines () {
+  sed -i "/^#BASELINE_START/,/^#BASELINE_STOP/d" $1
+}
+
+function complain () {
+  # inputs: a quoted string
+  # output: string is placed on stderr and sent to syslog
+  logger -st $prog $@
+}
+
+# make working copies of files
+# ----------------------------
+client_file=$(tmp_file) || complain "Error: failed to create client file in /tmp"
+server_file=$(tmp_file) || complain "Error: failed to create server file in /tmp"
+
+# client config
+if [ -w "$client_file" ]; then
+  cat $client_config > $client_file
+  delete_lines $client_file && cat << EOF >> $client_file
+#BASELINE_START
+# Lines from #BASELINE_START through #BASELINE_STOP
+# are maintained by "baseline" rpm.
+# Local modifications will be overwritten.
+
+	# assume last stanza in file is "Host *"
+
+	# trust other hosts to delegate kerberos credentials
+	GSSAPIDelegateCredentials yes
+
+	# workaround plaintext recovery attack on ssh protocol V2
+	Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+
+	# for now, use only ipv4
+	AddressFamily inet
+
+#BASELINE_STOP
+EOF
+  if [ $? -eq 0 -a $(id -u) -eq 0 ]; then
+    cat $client_file > $client_config || complain "Error: failed to overwrite $client_config"
+  fi
+fi
+
+# server config
+# ----------------------
+if [ -w "$server_file" ]; then
+  cat $server_config > $server_file
+  delete_lines $server_file && cat << EOF >> $server_file
+#BASELINE_START
+# Lines from #BASELINE_START through #BASELINE_STOP
+# are maintained by "baseline" rpm.
+# Local modifications will be overwritten.
+
+	# workaround plaintext recovery attack on ssh protocol V2
+	Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+
+	# for now, use only ipv4
+	AddressFamily inet
+
+#BASELINE_STOP
+EOF
+  if [ $? -eq 0 -a $(id -u) -eq 0 ]; then
+    cat $server_file > $server_config || complain "Error: failed to overwrite $server_config"
+    /sbin/service sshd status &> /dev/null && /sbin/service sshd restart
+  fi
+fi
+
