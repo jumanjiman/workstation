@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -237,6 +237,15 @@ if [ $1 -gt 0 ]; then
   %{_sbindir}/disable-zeroconf
   %{_sbindir}/disable-services
   %{_sbindir}/configure-ssh
+
+  # initialize etckeeper for /etc
+  pushd /etc &> /dev/null
+  if ! git rev-parse --show-cdup &> /dev/null; then
+    # NOTE: this is safe to do multiple times
+    etckeeper init
+    etckeeper commit "initialized /etc with etckeeper from baseline"
+  fi
+  popd
 
 fi
 
