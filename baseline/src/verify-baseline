@@ -1,42 +1,55 @@
 #!/bin/bash
 
-ret_code=0
+good_status=0
+warn_status=1
+err_status=2
+
+ret_code=$good_status
 
 /usr/bin/whoami | grep -q root
 if [ $? -eq 0 ]; then
   # warning conditions
+  # ==================
 
   # we disable zeroconf on servers
   /sbin/ip route show table all | grep -q 169.254 
   if [ $? -eq 0 ]; then
-    ret_code=1
+    ret_code=$warn_status
     echo 'WARNING: zeroconf network is enabled' 
   fi
   
   # check if /etc is a git repo
   git rev-parse --show-cdup &> /dev/null
   if [ $? -ne 0 ]; then
-    ret_code=4
+    ret_code=$warn_status
     echo "WARNING: /etc has not been properly initialized with etckeeper"
   fi
 
   # error conditions
+  # ================
+
   # double-check that sshd config is intact
   /usr/sbin/sshd -t 
   if [ $? -ne 0 ]; then
-    ret_code=2
+    ret_code=$err_status
     echo 'ERROR: /etc/ssh/sshd_config is fubar'
   fi
 
-  # check if we appear to have modified sshd_config
+  # check if we appear to have modified ssh_config and sshd_config
   for file in ssh_config sshd_config; do
-    grep '^#BASELINE_START' /etc/ssh/$file &> /dev/null || echo "ERROR: $file is incomplete"
-    grep '^#BASELINE_STOP'  /etc/ssh/$file &> /dev/null || echo "ERROR: $file is incomplete"
+    if ! grep '^#BASELINE_START' /etc/ssh/$file &> /dev/null; then
+      ret_code=$err_status
+      echo "ERROR: $file is incomplete"
+    fi
+    if ! grep '^#BASELINE_STOP'  /etc/ssh/$file &> /dev/null; then
+      ret_code=$err_status
+      echo "ERROR: $file is incomplete"
+    fi
   done
 
   ## end of checks
 else
-  ret_code=2
+  ret_code=$err_status
   echo "ERROR: must be root"
 fi
 
