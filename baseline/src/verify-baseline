@@ -21,6 +21,12 @@ if [ $? -eq 0 ]; then
     echo 'ERROR: /etc/ssh/sshd_config is fubar'
   fi
 
+  # check if we appear to have modified sshd_config
+  for file in ssh_config sshd_config; do
+    grep '^#BASELINE_START' /etc/ssh/$file &> /dev/null || echo "ERROR: $file is incomplete"
+    grep '^#BASELINE_STOP'  /etc/ssh/$file &> /dev/null || echo "ERROR: $file is incomplete"
+  done
+
   ## end of checks
 else
   ret_code=2
