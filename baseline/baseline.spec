@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.3.9
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -57,6 +57,7 @@ requires: net-snmp-utils
 requires: ndisc6
 requires: nmap
 requires: openssh
+requires: openldap-clients
 requires: openssh-server
 requires: openldap-devel
 requires: ntp
