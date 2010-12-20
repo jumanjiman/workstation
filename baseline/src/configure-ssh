@@ -67,6 +67,9 @@ if [ -w "$client_file" ]; then
 	# trust other hosts to delegate kerberos credentials
 	GSSAPIDelegateCredentials yes
 
+	# workaround plaintext recovery attack on ssh protocol V2
+	Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+
 	# for now, use only ipv4
 	AddressFamily inet
 
