@@ -112,6 +112,7 @@ for my machine.
 %{_sbindir}/verify-baseline
 %{_sbindir}/disable-zeroconf
 %{_sbindir}/disable-services
+%{_sbindir}/configure-ssh
 %doc README.asciidoc
 %doc rss2email.asciidoc
 
@@ -197,6 +198,7 @@ Workstation repo to configure yum for local repo
 %{__install} -p -m755 src/verify-baseline %{buildroot}%{_sbindir}
 %{__install} -p -m755 src/disable-zeroconf %{buildroot}%{_sbindir}
 %{__install} -p -m755 src/disable-services %{buildroot}%{_sbindir}
+%{__install} -p -m755 src/configure-ssh %{buildroot}%{_sbindir}
 %{__install} -p -m644 src/services_on  %{buildroot}%{_sysconfdir}/baseline
 %{__install} -p -m644 src/services_off %{buildroot}%{_sysconfdir}/baseline
 
@@ -233,6 +235,7 @@ if [ $1 -gt 0 ]; then
 
   %{_sbindir}/disable-zeroconf
   %{_sbindir}/disable-services
+  %{_sbindir}/configure-ssh
 
 fi
 
