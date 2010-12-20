@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.8
+Version: 0.3.9
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
@@ -265,6 +265,11 @@ fi
 
 
 %changelog
+* Mon Dec 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.9-1
+- protect ssh and sshd from plaintext recovery attack
+- require ssh and sshd as part of baseline
+- enable sshd for boot-time startup
+
 * Tue Nov 30 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.8-1
 - require iscsi client tools (jumanjiman@gmail.com)
 - require syslinux (jumanjiman@gmail.com)
