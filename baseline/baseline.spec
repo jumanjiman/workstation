@@ -56,6 +56,8 @@ requires: net-snmp
 requires: net-snmp-utils
 requires: ndisc6
 requires: nmap
+requires: openssh
+requires: openssh-server
 requires: openldap-devel
 requires: ntp
 requires: patchutils
