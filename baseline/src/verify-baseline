@@ -13,6 +13,13 @@ if [ $? -eq 0 ]; then
     echo 'WARNING: zeroconf network is enabled' 
   fi
   
+  # check if /etc is a git repo
+  git rev-parse --show-cdup &> /dev/null
+  if [ $? -ne 0 ]; then
+    ret_code=4
+    echo "WARNING: /etc has not been properly initialized with etckeeper"
+  fi
+
   # error conditions
   # double-check that sshd config is intact
   /usr/sbin/sshd -t 
