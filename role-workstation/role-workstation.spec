@@ -20,6 +20,9 @@ requires:	wd >= 0.9-2
 requires:	rpm-manifest
 requires:	rpm-manifest-etckeeper
 
+# browser
+requires:	google-chrome
+
 Requires:	nautilus-open-terminal
 Requires:	baseline
 Requires:	GConf2

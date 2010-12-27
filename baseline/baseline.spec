@@ -23,9 +23,6 @@ requires: spacecmd
 # newsreader from epel and fedora
 requires: rss2email
 
-# browser
-requires: google-chrome
-
 # common OS pkgs
 requires: authconfig
 requires: bash >= 4
