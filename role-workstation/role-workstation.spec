@@ -1,5 +1,5 @@
 Name:		role-workstation
-Version:	0.2.7
+Version:	0.2.8
 Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
@@ -178,6 +178,11 @@ fi
 
 
 %changelog
+* Mon Dec 27 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.8-1
+- move google-chrome to role-workstation (jumanjiman@gmail.com)
+- consistent use of tabs (jumanjiman@gmail.com)
+- move custom requires from baseline to role-workstation (jumanjiman@gmail.com)
+
 * Tue Nov 30 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.7-1
 - require scsi-target-utils (jumanjiman@gmail.com)
 
