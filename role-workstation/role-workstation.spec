@@ -13,12 +13,12 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildRequires: asciidoc
 
 # my custom RPMs
-requires: reach
-requires: bash-profile-scripts
-requires: baseline-release = %{version}-%{release}
-requires: wd >= 0.9-2
-requires: rpm-manifest
-requires: rpm-manifest-etckeeper
+requires:	reach
+requires:	bash-profile-scripts
+requires:	baseline-release = %{version}-%{release}
+requires:	wd >= 0.9-2
+requires:	rpm-manifest
+requires:	rpm-manifest-etckeeper
 
 Requires:	nautilus-open-terminal
 Requires:	baseline
@@ -68,7 +68,7 @@ requires:	tsclient
 # this is orphaned in F14
 requires:	system-config-display
 %endif
-requires:   xorg-x11-apps
+requires:	xorg-x11-apps
 
 # edit gnome menus
 requires:	alacarte
@@ -97,8 +97,8 @@ requires:	docbook-style-dsssl
 requires:	docbook5-style-xsl
 
 # text utils
-requires:   dictd
-requires:   diction
+requires:	dictd
+requires:	diction
 
 # servers
 requires:	dhcp
