@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.11
+Version: 0.3.12
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
@@ -264,6 +264,10 @@ fi
 
 
 %changelog
+* Mon Dec 27 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.12-1
+- move google-chrome to role-workstation (jumanjiman@gmail.com)
+- move custom requires from baseline to role-workstation (jumanjiman@gmail.com)
+
 * Mon Dec 20 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.11-1
 - improved exit status of verify-baseline (jumanjiman@gmail.com)
 - verify-baseline checks etckeeper init (jumanjiman@gmail.com)
