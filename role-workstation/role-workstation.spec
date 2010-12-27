@@ -12,6 +12,14 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 BuildRequires: asciidoc
 
+# my custom RPMs
+requires: reach
+requires: bash-profile-scripts
+requires: baseline-release = %{version}-%{release}
+requires: wd >= 0.9-2
+requires: rpm-manifest
+requires: rpm-manifest-etckeeper
+
 Requires:	nautilus-open-terminal
 Requires:	baseline
 Requires:	GConf2
