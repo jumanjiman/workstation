@@ -14,8 +14,8 @@ BuildRequires: asciidoc
 
 # my custom RPMs
 requires:	reach
-requires:	bash-profile-scripts
-requires:	baseline-release = %{version}-%{release}
+requires:	bash-profile-scripts >= 0.2.6-1
+requires:	baseline-release >= 0.3.13-1
 requires:	wd >= 0.9-2
 requires:	rpm-manifest
 requires:	rpm-manifest-etckeeper
