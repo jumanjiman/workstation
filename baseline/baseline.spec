@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.13
+Version: 0.4.0
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
