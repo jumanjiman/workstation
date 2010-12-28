@@ -123,6 +123,7 @@ requires: diveintopython-txt
 %endif
 
 # common tools
+requires: asciidoc
 requires: rpm-build
 requires: redhat-rpm-config
 requires: rpmlint
