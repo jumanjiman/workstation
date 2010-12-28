@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.4.0
+Version: 0.4.1
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
@@ -265,6 +265,10 @@ fi
 
 
 %changelog
+* Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.4.1-1
+- bump version (jumanjiman@gmail.com)
+- disable workstation.repo by default (jumanjiman@gmail.com)
+
 * Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.13-1
 - baseline-devel requires asciidoc (jumanjiman@gmail.com)
 
