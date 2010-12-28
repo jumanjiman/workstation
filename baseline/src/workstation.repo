@@ -2,3 +2,4 @@
 name=workstation
 baseurl=http://localhost/workstation
 gpgkey=file:///etc/pki/rpm-gpg/pmorgan.pubkey
+enabled=0
