@@ -1,6 +1,6 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.3.12
+Version: 0.3.13
 Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
@@ -265,6 +265,9 @@ fi
 
 
 %changelog
+* Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.13-1
+- baseline-devel requires asciidoc (jumanjiman@gmail.com)
+
 * Mon Dec 27 2010 Paul Morgan <jumanjiman@gmail.com> 0.3.12-1
 - move google-chrome to role-workstation (jumanjiman@gmail.com)
 - move custom requires from baseline to role-workstation (jumanjiman@gmail.com)
