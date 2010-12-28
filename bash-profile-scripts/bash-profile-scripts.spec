@@ -1,7 +1,7 @@
 name: bash-profile-scripts
 summary: Adds /etc/profile.d/ files for Bash
 
-version: 0.2.5
+version: 0.2.6
 release: 1%{?dist}
 
 license: GPLv3 and GPLv2
@@ -68,6 +68,9 @@ the way I like it.
 %doc COPYING.GPLv3
 
 %changelog
+* Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.6-1
+- fix filename in spec (jumanjiman@gmail.com)
+
 * Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.5-1
 - rename file (jumanjiman@gmail.com)
 - remove dangerous "exit 0" (jumanjiman@gmail.com)
