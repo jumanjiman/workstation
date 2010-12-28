@@ -1,5 +1,5 @@
 Name:		role-workstation
-Version:	0.2.8
+Version:	0.2.9
 Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
@@ -178,6 +178,9 @@ fi
 
 
 %changelog
+* Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.9-1
+- better version numbers for custom requires (jumanjiman@gmail.com)
+
 * Mon Dec 27 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.8-1
 - move google-chrome to role-workstation (jumanjiman@gmail.com)
 - consistent use of tabs (jumanjiman@gmail.com)
