@@ -59,6 +59,7 @@ requires:	tuned-utils
 requires:	dwarves
 requires:	spu-binutils
 requires:	seekwatcher
+requires:	gnuplot
 
 # virtualization tools
 requires:	qemu-kvm-tools
