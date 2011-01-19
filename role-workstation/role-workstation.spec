@@ -63,6 +63,7 @@ requires:	gnuplot
 
 # troubleshooting tools
 requires:	dhcping
+requires:	ethstatus
 
 # virtualization tools
 requires:	qemu-kvm-tools
