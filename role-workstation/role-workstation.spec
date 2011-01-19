@@ -61,6 +61,9 @@ requires:	spu-binutils
 requires:	seekwatcher
 requires:	gnuplot
 
+# troubleshooting tools
+requires:	dhcping
+
 # virtualization tools
 requires:	qemu-kvm-tools
 
