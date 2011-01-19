@@ -11,11 +11,11 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 BuildArch:	noarch
 
 Requires:	lxappearance
-Requires:	lxde-common.noarch
+Requires:	lxde-common
 Requires:	imsettings-lxde
-Requires:	lxde-icon-theme.noarch
+Requires:	lxde-icon-theme
 Requires:	lxinput
-Requires:	lxmenu-data.noarch
+Requires:	lxmenu-data
 Requires:	lxdm
 Requires:	lxlauncher
 Requires:	lxmusic
