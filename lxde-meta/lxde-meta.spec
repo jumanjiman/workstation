@@ -1,6 +1,6 @@
 Name:		lxde-meta
 Version:	0.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Provides components for a lightweight X11 desktop environment
 
 Group:		System Environment/Base
