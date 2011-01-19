@@ -60,6 +60,7 @@ requires:	dwarves
 requires:	spu-binutils
 requires:	seekwatcher
 requires:	gnuplot
+requires:	tiobench
 
 # troubleshooting tools
 requires:	dhcping
