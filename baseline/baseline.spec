@@ -267,6 +267,9 @@ fi
 
 
 %changelog
+* Wed Feb 09 2011 Paul Morgan <jumanjiman@gmail.com> 0.4.1-2
+- require aspell for CLI spell-check
+
 * Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.4.1-1
 - bump version (jumanjiman@gmail.com)
 - disable workstation.repo by default (jumanjiman@gmail.com)
