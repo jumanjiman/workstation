@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
 Version: 0.4.1
-Release: 1%{?dist}
+Release: 2%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -24,6 +24,8 @@ requires: spacecmd
 requires: rss2email
 
 # common OS pkgs
+requires: aspell
+requires: aspell-en
 requires: authconfig
 requires: bash >= 4
 requires: bridge-utils
