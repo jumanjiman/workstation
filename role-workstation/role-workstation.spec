@@ -187,6 +187,14 @@ fi
 
 
 %changelog
+* Wed Feb 16 2011 Paul Morgan <jumanjiman@gmail.com> 0.3.0-1
+- use a large scrollback buffer in gnome-terminal
+- requires anaconda
+- requires tiobench
+- requires ethstatus
+- requires dhcping
+- requires gnuplot
+
 * Tue Dec 28 2010 Paul Morgan <jumanjiman@gmail.com> 0.2.9-1
 - better version numbers for custom requires (jumanjiman@gmail.com)
 
