@@ -116,6 +116,9 @@ requires:	bind
 requires:	bind-chroot
 requires:	httpd
 
+# docs for kickstart
+requires:	anaconda
+
 # storage server
 requires:	scsi-target-utils
 
