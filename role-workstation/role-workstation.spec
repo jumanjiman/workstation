@@ -1,5 +1,5 @@
 Name:		role-workstation
-Version:	0.2.9
+Version:	0.3.0
 Release:	1%{?dist}
 Summary:	configures a graphical workstation
 
