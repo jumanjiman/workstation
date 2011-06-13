@@ -31,7 +31,7 @@ Requires:	kernel-doc
 requires:	git-all
 
 # eclipse tools
-requires:	eclipse-demos
+#requires:	eclipse-demos
 requires:	eclipse-rpmstubby
 requires:	eclipse-rpm-editor
 requires:	eclipse-setools
