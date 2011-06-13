@@ -70,7 +70,14 @@ requires:	ethstatus
 requires:	qemu-kvm-tools
 
 # thin clients
+%if 0%{?fedora} < 15
+# this is orphaned in F15
 requires:	tsclient
+%elif 0%{?fedora} = 15
+requires:	freerdp
+# why does gnome-rdp depend on mono?
+#requires:	gnome-rdp
+%endif
 
 # gui debugging
 %if 0%{?fedora} < 14
