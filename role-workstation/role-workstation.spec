@@ -21,7 +21,7 @@ requires:	rpm-manifest
 requires:	rpm-manifest-etckeeper
 
 # browser
-requires:	google-chrome
+requires:	google-chrome-stable
 
 Requires:	nautilus-open-terminal
 Requires:	baseline
