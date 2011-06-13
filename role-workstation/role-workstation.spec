@@ -93,7 +93,7 @@ requires:	purple-plugin_pack-pidgin
 
 # authoring
 requires:	publican
-requires:	publican-redhatgps
+#requires:	publican-redhatgps
 requires:	docbook-dtds
 requires:	docbook-utils
 requires:	docbook-simple
