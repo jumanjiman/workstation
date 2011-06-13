@@ -1,6 +1,6 @@
 Name:		role-workstation
 Version:	0.3.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	configures a graphical workstation
 
 Group:		System Environment/Base
