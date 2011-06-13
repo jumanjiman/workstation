@@ -194,6 +194,13 @@ fi
 
 
 %changelog
+* Mon Jun 13 2011 Paul Morgan <jumanjiman@gmail.com> 0.3.0-2
+- rdp client for fedora 15
+- do not require eclipse-demos
+- do not require publican-redhatgps
+- require stable version of google-chrome
+- right-click titlebar to maximize horizontally
+
 * Wed Feb 16 2011 Paul Morgan <jumanjiman@gmail.com> 0.3.0-1
 - use a large scrollback buffer in gnome-terminal
 - requires anaconda
