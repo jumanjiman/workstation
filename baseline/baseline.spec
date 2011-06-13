@@ -1,7 +1,7 @@
 Name: baseline
 summary: baseline configuration 
-Version: 0.4.1
-Release: 2%{?dist}
+Version: 0.4.2
+Release: 1%{?dist}
 
 url: http://github.com/jumanjiman/workstation
 Group: System Environment/Base
@@ -267,6 +267,9 @@ fi
 
 
 %changelog
+* Mon Jun 13 2011 Paul Morgan <jumanjiman@gmail.com> 0.4.2-1
+- additional ciphers for ssh
+
 * Wed Feb 09 2011 Paul Morgan <jumanjiman@gmail.com> 0.4.1-2
 - require aspell for CLI spell-check
 
