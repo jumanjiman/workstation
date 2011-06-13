@@ -68,7 +68,7 @@ if [ -w "$client_file" ]; then
 	GSSAPIDelegateCredentials yes
 
 	# workaround plaintext recovery attack on ssh protocol V2
-	Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+	Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes256-cbc,arcfour256,arcfour
 
 	# for now, use only ipv4
 	AddressFamily inet
@@ -91,7 +91,7 @@ if [ -w "$server_file" ]; then
 # Local modifications will be overwritten.
 
 	# workaround plaintext recovery attack on ssh protocol V2
-	Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+	Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes256-cbc,arcfour256,arcfour
 
 	# for now, use only ipv4
 	AddressFamily inet
