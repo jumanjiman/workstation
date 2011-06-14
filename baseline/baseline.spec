@@ -269,6 +269,9 @@ fi
 
 
 %changelog
+* Tue Jun 14 2011 Paul Morgan <jumanjiman@gmail.com> 0.4.2-2
+- baseline: require samba client and docs
+
 * Mon Jun 13 2011 Paul Morgan <jumanjiman@gmail.com> 0.4.2-1
 - additional ciphers for ssh
 
