@@ -53,6 +53,8 @@ requires: openssh-server
 requires: openldap-devel
 requires: ntp
 requires: patchutils
+requires: samba-client
+requires: samba-doc
 requires: setroubleshoot
 requires: iscsi-initiator-utils
 requires: sg3_utils
