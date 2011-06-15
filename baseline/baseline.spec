@@ -33,6 +33,7 @@ requires: chkconfig
 requires: device-mapper-multipath
 requires: dictd
 requires: dstat
+requires: dos2unix
 requires: elinks
 requires: ethtool
 requires: grep
@@ -65,6 +66,7 @@ requires: sysstat
 requires: system-config-kdump
 requires: system-config-network
 requires: tftp
+requires: unix2dos
 requires: util-linux
 requires: vim-enhanced
 requires: wireshark
