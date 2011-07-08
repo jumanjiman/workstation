@@ -50,7 +50,6 @@ requires:	eclipse-callgraph
 requires:	oprofile-gui
 requires:	gprof2dot
 requires:	systemtap
-requires:	systemtap-client
 requires:	systemtap-grapher
 requires:	systemtap-runtime
 requires:	systemtap-server
