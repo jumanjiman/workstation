@@ -85,7 +85,6 @@ requires: tcping
 requires: blktrace
 requires: valgrind
 requires: systemtap-runtime
-requires: systemtap-client
 requires: tuned-utils
 requires: oprofile
 requires: oprofile-jit
